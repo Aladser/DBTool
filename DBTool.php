@@ -12,7 +12,7 @@ class DBTool
      * @param array $fields ассоциативный массив полей строки
      * @return object|null строка таблицы
      */
-    public static function getObjectById(string $tableName, int $id, array $fields=[]): object|null
+    public static function getObjectById(string $tableName, int $id, array $fields=[]): ?object
     {
         $fieldsStr = count($fields)>0 ? implode(', ', $fields) : '*';
         $conn = JFactory::getDBO();
@@ -29,7 +29,7 @@ class DBTool
      * @param $fields array ассоциативный массив полей строки
      * @return object|null строка таблицы
      */
-    public static function getObject(string $tableName, string $columnName, mixed $columnValue, array $fields=[]): object|null
+    public static function getObject(string $tableName, string $columnName, $columnValue, array $fields=[]): ?object
     {
         if ($tableName==='' || $columnName==='' || empty($columnValue)) {
             return null;
